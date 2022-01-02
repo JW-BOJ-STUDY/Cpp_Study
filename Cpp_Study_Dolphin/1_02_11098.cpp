@@ -4,20 +4,24 @@
 using namespace std;
 
 int main() {
-	int n, p;
-	unsigned int C; 
-	char name; 
+	int n, p, max = 0;
 
-	cout << "";
 	cin >> n;
 
 	for (int i = 0; i < n; i++) {
 		cin >> p;
-		for (int j = 0; j < p; j++) {
-			cin >> C, name; 
-		}
-	}
+		string* p_namelist = new string[p];
+		int* p_paylist = new int[p];
 
+		for (int j = 0; j < p; j++) {
+			cin >> p_paylist[j] >> p_namelist[j];
+			if (p_paylist[j] >= p_paylist[max]) max = j;
+		}
+
+		cout << p_namelist[max] << endl;
+		delete[]p_namelist;
+		delete[]p_paylist;
+	}
 
 	return 0;
 }
