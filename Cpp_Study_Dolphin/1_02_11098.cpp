@@ -1,26 +1,27 @@
 // 11098, 첼시를 도와줘
+// endl보다는 '\n'이 속도를 개선한다고 합니다.. 옹..
 #include <iostream>
 
 using namespace std;
 
 int main() {
-	int n, p, max = 0;
+	int n, p;
 
 	cin >> n;
 
 	for (int i = 0; i < n; i++) {
 		cin >> p;
-		string* p_namelist = new string[p];
-		int* p_paylist = new int[p];
+	
+		int pay, max = 0;
+		string name, max_name;
 
 		for (int j = 0; j < p; j++) {
-			cin >> p_paylist[j] >> p_namelist[j];
-			if (p_paylist[j] >= p_paylist[max]) max = j;
+			cin >> pay >> name;
+			if (pay >= max) { 
+				max = pay;
+				max_name = name;}
 		}
-
-		cout << p_namelist[max] << endl;
-		delete[]p_namelist;
-		delete[]p_paylist;
+		cout << max_name << '\n';
 	}
 
 	return 0;
